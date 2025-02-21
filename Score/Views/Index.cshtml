@@ -1,0 +1,36 @@
+@model ScoreCalculatorApp.Models.SubjectScoreModel
+
+@{
+    ViewData["Title"] = "Tính Điểm Môn Học";
+}
+
+<h2>Tính Điểm Môn Học</h2>
+
+<form method="post">
+    <div>
+        <label for="ScoreA">Điểm A:</label>
+        <input type="number" asp-for="ScoreA" step="0.1" />
+        <span asp-validation-for="ScoreA" class="text-danger"></span>
+    </div>
+    
+    <div>
+        <label for="ScoreB">Điểm B:</label>
+        <input type="number" asp-for="ScoreB" step="0.1" />
+        <span asp-validation-for="ScoreB" class="text-danger"></span>
+    </div>
+
+    <div>
+        <label for="ScoreC">Điểm C:</label>
+        <input type="number" asp-for="ScoreC" step="0.1" />
+        <span asp-validation-for="ScoreC" class="text-danger"></span>
+    </div>
+    
+    <button type="submit">Tính Điểm</button>
+</form>
+
+@if (ViewBag.FinalScore != null)
+{
+    <h3>Kết quả:</h3>
+    <p>Điểm trung bình: <strong>@ViewBag.FinalScore</strong></p>
+    <p>Xếp loại: <strong>@ViewBag.Result</strong></p>
+}
